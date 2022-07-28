@@ -33,6 +33,7 @@ def main():
         # print(file)
         # print(file[2:4])
         t, V = readcsvdata(file)
+        V_detrended = signal.detrend(V)
 
         path, filename = os.path.split(file)
 
@@ -47,7 +48,7 @@ def main():
 
         # plot in \mu s:
         # plt.plot(t*1e7,V/max(V)+offset)
-        plt.plot(t, V, label=labels)
+        plt.plot(t, V_detrended, label=labels)
         plt.axis("on")
         ax.legend()
 
